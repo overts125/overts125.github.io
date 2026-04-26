@@ -34,4 +34,3 @@
 `[IDLE]` Waiting for the next big project.
 
 ---
-**"Software is like sex: it's better when it's free." — Linus Torvalds**
