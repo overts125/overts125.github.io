@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>overts125 | System Architect</title>
+    <style>
+        body { margin: 0; padding: 0; background: black; color: #0f0; font-family: 'Courier New', Courier, monospace; overflow-x: hidden; }
+        canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+        .content { max-width: 800px; margin: 50px auto; padding: 20px; background: rgba(0, 0, 0, 0.8); border: 1px solid #0f0; box-shadow: 0 0 20px #0f0; }
+        h1, h2 { border-bottom: 1px solid #0f0; padding-bottom: 10px; }
+        a { color: #0f0; text-decoration: none; border: 1px solid #0f0; padding: 2px 5px; }
+        a:hover { background: #0f0; color: black; }
+        li { list-style: none; margin-bottom: 10px; }
+        li::before { content: "> "; }
+    </style>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <div class="content">
+        <h1>🚀 overts125: System Architect & Radio Scout</h1>
+        <p><i>System status: Online. Lunch: Completed. 🍲</i></p>
+        
+        <h2>🖥️ OS & Kernel Experience</h2>
+        <ul>
+            <li><b>Arch Linux Enthusiast:</b> My daily driver (btw).</li>
+            <li><b>LFS:</b> Successfully built Linux from Scratch.</li>
+            <li><b>Kernel:</b> Custom compiled and optimized.</li>
+        </ul>
+
+        <h2>🐍 Python & Automation</h2>
+        <ul>
+            <li><b>Steam:</b> Fully automated farming (SDA + SIH).</li>
+            <li><b>Monitoring:</b> Real-time CPU/GPU tracking.</li>
+        </ul>
+
+        <h2>📻 Radio & SDR</h2>
+        <ul>
+            <li><b>UVB-76:</b> Monitoring "The Buzzer" and mysterious signals.</li>
+            <li><b>Hardware:</b> SDR reconnaissance.</li>
+        </ul>
+
+        <p><i>"Software is like sex: it's better when it's free." — Linus Torvalds</i></p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0f0';
+            ctx.font = fontSize + 'px monospace';
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 33);
+    </script>
+</body>
+</html>
 
